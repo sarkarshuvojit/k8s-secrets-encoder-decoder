@@ -1,8 +1,5 @@
 import {parse, stringify} from 'yaml';
 
-function isEncoded(source: string): boolean {
-  return false;
-}
 
 function baseDecode(source: string): string {
   return atob(source);
@@ -10,6 +7,15 @@ function baseDecode(source: string): string {
 
 function baseEncode(source: string): string {
   return btoa(source);
+}
+
+function isEncoded(source: string): boolean {
+  try {
+    baseDecode(source);
+    return true;
+  } catch (ex) {
+    return false;
+  }
 }
 
 export enum DocumentSummary {
