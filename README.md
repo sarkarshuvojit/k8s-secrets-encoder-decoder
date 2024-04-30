@@ -3,6 +3,8 @@ Kubernetes Secret YAML Encoder/Decoder
 
 This web application allows you to easily encode and decode the data section of Kubernetes secrets YAML files. It's built with React and provides a user-friendly interface to manage your secrets securely.
 
+[demo of the app](docs/demo.gif)
+
 ### Features
 
 *   Encode plain text data keys and values into base64 for safe storage in Kubernetes secrets.
