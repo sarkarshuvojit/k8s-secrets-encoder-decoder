@@ -18,7 +18,7 @@ const texts = {
   title: "k8s secrets encoder/decoder",
   tageline: "encode or decode your secrets yaml file",
   mainTextAreaPlaceholder: "Enter your secrets yaml file here",
-  outputTextAreaPlacholder: "This is wherer your output will show up"
+  outputTextAreaPlacholder: "This is where your output will show up"
 }
 
 
