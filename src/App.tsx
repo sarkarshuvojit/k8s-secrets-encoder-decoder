@@ -44,6 +44,11 @@ export const ConverterComponent = () => {
     }
   }
 
+  const clear = () => {
+    setInputText("");
+    setOutputText("");
+  }
+
   return <VStack paddingX={'20px'} marginTop={'30px'}>
     <Textarea 
     minH={'30vh'} 
@@ -52,7 +57,7 @@ export const ConverterComponent = () => {
     placeholder={texts.mainTextAreaPlaceholder}></Textarea>
     <ButtonGroup>
       <Button onClick={() => encode(inputText)}>Encode</Button>
-      <Button>Reset</Button>
+      <Button onClick={clear}>Reset</Button>
       <Button onClick={() => decode(inputText)}>Decode</Button>
     </ButtonGroup>
     <Textarea 
