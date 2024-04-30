@@ -1,6 +1,7 @@
 {
   "name": "k8s-secrets-encoder-decoder",
   "version": "0.1.0",
+  "homepage": "https://shuvojit.dev/k8s-secrets-encoder-decoder/",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",

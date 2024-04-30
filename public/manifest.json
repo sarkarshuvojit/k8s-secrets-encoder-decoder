@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "k8s-sec-codec",
+  "name": "k8s secrets encoder/decoder",
   "icons": [
     {
       "src": "favicon.ico",
