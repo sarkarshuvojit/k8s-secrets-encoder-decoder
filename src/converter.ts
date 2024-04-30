@@ -43,33 +43,31 @@ export function getDocumentSummary(source: string): DocumentSummary {
   return DocumentSummary.MIXED;
 }
 
-export function encodeAll(source: string): string {
+function runForAll(source: string, op: Function, filterOp: Function): string {
+  console.groupCollapsed(`runForAll(${op.name})`);
+
   const doc = parse(source);
   if (!('data' in doc)) {
+    console.warn("Data not found in doc")
     return source;
   }
 
   for(const key in doc.data) {
     const value = doc.data[key];
-    if (!isEncoded(value)) {
-      doc.data[key] = baseEncode(value);
+    console.warn("Processing key: ", key, " value: ", value)
+    if (filterOp(value)) {
+      console.info("Converting value: ", value)
+      doc.data[key] = op(value);
     }
   }
-  return stringify(source);
+  console.groupEnd();
+  return stringify(doc);
+}
+
+export function encodeAll(source: string): string {
+  return runForAll(source, baseEncode, (v: string) => !isEncoded(v));
 }
 
 export function decodeAll(source: string): string {
-  const doc = parse(source);
-  if (!('data' in doc)) {
-    return source;
-  }
-
-  for(const key in doc.data) {
-    const value = doc.data[key];
-    if (isEncoded(value)) {
-      doc.data[key] = baseDecode(value);
-    }
-  }
-  return stringify(source);
-
+  return runForAll(source, baseDecode, (v: string) => isEncoded(v));
 }
